@@ -265,7 +265,7 @@ class Generate {
     $query->bindValue(10, $bca_an);
     $query->bindValue(11, $jenis);
     $query->bindValue(12, $status);
-    $query->bindValue(13, '');
+    $query->bindValue(13, null);
 	 	try{
 			$query->execute();
 		}catch(PDOException $e){
@@ -289,13 +289,12 @@ class Generate {
 		}
 	}	  
 	public function create_master_spg($tabel, $tahun,$bulan, $kd_konter,	$no_surat,$kat){
-	 	$query 	= $this->db->prepare("INSERT INTO	$tabel (id, tahun,	bulan,	kd_konter,	no_surat,	kat)VALUES(?, ?, ?, ?, ?, ?)");
-	 	$query->bindValue(1, '');
-    $query->bindValue(2, $tahun);
-    $query->bindValue(3, $bulan);
-    $query->bindValue(4, $kd_konter);
-    $query->bindValue(5, $no_surat);
-    $query->bindValue(6, $kat);
+	 	$query 	= $this->db->prepare("INSERT INTO	$tabel (tahun,	bulan,	kd_konter,	no_surat,	kat)VALUES( ?, ?, ?, ?, ?)");
+    $query->bindValue(1, $tahun);
+    $query->bindValue(2, $bulan);
+    $query->bindValue(3, $kd_konter);
+    $query->bindValue(4, $no_surat);
+    $query->bindValue(5, $kat);
 	 	try{
 			$query->execute();
 		}catch(PDOException $e){
