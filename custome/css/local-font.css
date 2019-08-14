@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'oswald';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/oswald/Oswald-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'oswaldbold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/oswald/Oswald-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'oswaldlight';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/oswald/Oswald-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'senna';
+  src: url('../fonts/senna/senna.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sennabold';
+  src: url('../fonts/senna/sennabold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'helvet';
+  src: url('../fonts/senna/HelveticaNeue.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'helvetMed';
+  src: url('../fonts/senna/HelveticaNeueMed.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/open sans.woff2') format('woff2');
+}

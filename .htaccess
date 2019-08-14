@@ -1,0 +1,71 @@
+Options +FollowSymLinks
+	RewriteEngine On	  
+	#RewriteCond %{HTTPS} off
+	#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
+	#BEGIN EXPIRES
+	<IfModule mod_expires.c>
+			ExpiresActive On
+			ExpiresDefault "access plus 10 days"
+			ExpiresByType text/css "access plus 1 week"
+			ExpiresByType text/plain "access plus 1 month"
+			ExpiresByType image/gif "access plus 1 month"
+			ExpiresByType image/png "access plus 1 month"
+			ExpiresByType image/jpeg "access plus 1 month"
+			ExpiresByType application/x-javascript "access plus 1 month"
+			ExpiresByType application/javascript "access plus 1 week"
+			ExpiresByType application/x-icon "access plus 1 year"
+	</IfModule>
+	#END EXPIRES
+	
+  ErrorDocument 404 /surat/404.avx
+	ErrorDocument 403 /surat/403.avx
+	
+	RewriteRule ^(.*/)?404/?\.(avx)?$ include/404.php [NC]
+	RewriteRule ^403/?\.(avx)?$ include/403.php [NC]
+	
+	
+#Digunakan saat melakukan konstruksi-start.
+#buang tanda pagar di depannya.
+	#RewriteCond %{REMOTE_ADDR} !^127\.0\.0\.1
+	#RewriteCond %{REQUEST_URI} !/construction.html$ [NC]
+	#RewriteCond %{REQUEST_URI} !\.(jpe?g?|png|gif|css) [NC]
+	#RewriteRule .* /surat/include/construction.html [R=302,L]
+#Digunakan saat melakukan konstruksi-end.	
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+	RewriteRule ^main\/home\.avx$ vx_main\/compile.php?module=home [L]
+	RewriteRule ^print\/((toko|konter|spg|tat|rekrut|retur)\_(create|read|update|delete))\.avx$ vx_main/compile.php?module=$2&action=$1 [L]
+	RewriteRule ^master\/((master|mtoko|mkonter|masspg)\_(create|read|update|delete|pilih))\.avx$ vx_main/compile.php?module=$2&action=$1 [L]
+	RewriteRule ^hrd\/((pak)\_(create|read|update|delete|pilih))\.avx$ vx_main/compile.php?module=$2&action=$1 [L]
+	RewriteRule ^import\/(konter|toko)\.avx$ vx_main/compile.php?module=import&action=$1 [L]
+  RewriteRule ^(print)\/(toko|konter|konterstr|temp|spg|tat|rekrut|retur|paklaring)\/(.*)\.avx$ include/module_print.php?module=$2&action=$1&parameter=$3 [L]
+  RewriteRule ^(master)\/(.*)\/(.*)\.avx$ vx_main/compile.php?module=masspg&action=masspg_read&thn=$2&bln=$3 [L]
+  RewriteRule ^print\/temp\.avx$ include/module/mod_print/mod_print_temp.php [L]
+	
+  RewriteRule ^modal\/(konter|toko|master)\.avx$ include/module/mod_master/v_mod_master_modal_ajax.php [L]
+  RewriteRule ^modal\/(pak)\.avx$ include/module/mod_hrd/v_mod_hrd_modal_ajax.php [L]
+  RewriteRule ^modal\/spg\.avx$ include/module/mod_spg/v_mod_spg_modal_ajax.php [L]
+  RewriteRule ^modal\/masspg\.avx$ include/module/mod_spg/v_mod_masspg_modal_ajax.php [L]
+  RewriteRule ^modal\/retur\.avx$ include/module/mod_retur/v_mod_retur_modal_ajax.php [L]
+  RewriteRule ^modal\/tat\.avx$ include/module/mod_tat/v_mod_tat_modal_ajax.php [L]
+	
+  RewriteRule ^modact\/(konter|toko|master)\.avx$ include/module/mod_master/y_mod_master.php [L]
+  RewriteRule ^modact\/(masspg)\.avx$ include/module/mod_masspg/y_mod_masspg.php [L]
+  RewriteRule ^modact\/(spg)\.avx$ include/module/mod_spg/y_mod_spg.php [L]
+  RewriteRule ^modact\/(retur)\.avx$ include/module/mod_retur/y_mod_retur.php [L]
+  RewriteRule ^modact\/(pak)\.avx$ include/module/mod_hrd/y_mod_hrd.php [L]
+  RewriteRule ^modact\/(tat)\.avx$ include/module/mod_tat/y_mod_tat.php [L]
+	
+  RewriteRule ^data\/konter\.avx$ include/module/mod_konter/x_mod_konter.php [L]  
+  RewriteRule ^data\/toko\.avx$ include/module/mod_toko/x_mod_toko.php [L]
+  RewriteRule ^data\/master\.avx$ include/module/mod_master/x_mod_master.php [L]
+  RewriteRule ^data\/pak\.avx$ include/module/mod_hrd/x_mod_hrd.php [L]
+  RewriteRule ^data\/masspg\.avx$ include/module/mod_masspg/x_mod_masspg.php [L]
+  RewriteRule ^data\/rekrut\.avx$ include/module/mod_rekrut/x_mod_rekrut.php [L]
+  RewriteRule ^data\/spg\.avx$ include/module/mod_spg/x_mod_spg.php [L]
+  RewriteRule ^data\/retur\.avx$ include/module/mod_retur/x_mod_retur.php [L]
+  RewriteRule ^data\/tat\.avx$ include/module/mod_tat/x_mod_tat.php [L]
+
+Options All -Indexes

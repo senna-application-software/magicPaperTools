@@ -1,0 +1,56 @@
+*{font-family:'Open Sans', 'oswaldlight', sans-serif;font-size:12px;box-sizing:border-box;border-radius:0!important;}
+body{background-color:#c7c7c7!important}
+.content{
+	width:210mm;
+	height:297mm;
+	margin:0 auto!important;
+	position:relative;
+	padding: 0;
+	overflow:hidden;
+}
+.page-header{border-bottom: 2px solid #777!important;}
+.content:after{display:block;conten:"xx"}
+.kop_surat{
+	background-image:url("../../image/kop_surat.png")!important;
+	background-size	:cover!important;			
+	background-repeat	:no-repeat!important;			
+	width:100%;height:auto;position:absolute;top:0;
+	-webkit-print-color-adjust: exact !important;   /* Chrome, Safari */
+    color-adjust: exact !important;                 /*Firefox*/
+}
+.main-content{padding:130px 32px 20px 32px;position:relative;height:297mm}   
+.kop_header{width:100%;height:auto;padding:0;margin:0}   
+.kop_footer{width:194px;height:auto;position:absolute;bottom:0;right:0;z-index:-1}
+.container_cap_ttd{position:absolute;bottom:0;width:100%;height:5cm;z-index:1}
+.cap{width:251px;height:auto;position:absolute;top:6px;left:50px;}
+.ttd{width:100px;height:auto;position:absolute;top:0px;left:0;z-index:1}
+.table.tb-head tr td{border:none;line-height:0.5;background-color:transparent!important}		
+.table tr td{border:none;line-height:0.5;background-color:transparent!important}
+
+@media all {
+	.page-break	{ display: none; }
+}
+
+@media print {
+	.page-break	{ display: block; page-break-before: always; }
+}
+@media print {
+	body{background-color:transparent}
+	.kop_surat {
+		-webkit-print-color-adjust: exact !important;   /* Chrome, Safari */
+    color-adjust: exact !important;                 /*Firefox*/	
+	}
+	header nav, footer { display: none!important;}
+	@page {
+		size:A4;
+		margin-left: 0px;
+		margin-right: 0px;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		margin: 0!important;
+		box-shadow:0!important;
+		-webkit-print-color-adjust: exact!important;
+	}			
+  .not, .print-navigasi{display:none!important}     
+}
+@media screen {.content{zoom:100%}}	
