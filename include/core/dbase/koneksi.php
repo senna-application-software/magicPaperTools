@@ -7,10 +7,10 @@
 error_reporting(0);
 date_default_timezone_set('Asia/Jakarta');
 $config = array(
-	'host'		=> 'localhost',
-	'username' 	=> 'root',
-	'password' 	=> 'yourpass',
-	'dbname' 	=> 'surat'
+	'host'		=> 'remotemysql.com:3306',
+	'username' 	=> 'm3HM9P75be',
+	'password' 	=> 'nwFWbJO4TI',
+	'dbname' 	=> 'm3HM9P75be'
 );
 
 try
