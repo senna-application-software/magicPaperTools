@@ -21,8 +21,7 @@
 $action		  = $_GET["action"];
 $tgl_surat	= date('y-m-d', strtotime($_GET["tgl_surat"])); 	
 $tgl_tugas	= date('y-m-d', strtotime($_GET["tgl_tugas"])); 
-$tgl_keluar	= $_GET["tgl_keluar"];
-empty($tgl_keluar) ? $tgl_keluar = "0000-00-00" : $tgl_keluar =  date('y-m-d', strtotime($_GET["tgl_keluar"]));
+$tgl_keluar	= isset($_GET["tgl_keluar"]) ? $tgl_keluar = $_GET["tgl_keluar"]: $tgl_keluar = null;
 $no_surat		= strtolower(strip_tags(addslashes(trim($_GET["no_surat"])))); 
 $nm_spg		  = strtolower(strip_tags(addslashes(trim($_GET["nama"])))); 	
 $alamat_spg	= strtolower(strip_tags(addslashes(trim($_GET["alamat"])))); 	
