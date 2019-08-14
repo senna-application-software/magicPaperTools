@@ -14,7 +14,7 @@ $(document).ready(function() {
 	var source 		= "https://www.youtube.com/embed/videoseries?list=PLd6TpzqvlAzyZjAWtIJxkGy397n-9kcMl";
 	var sourcez 	= "https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG";
 	var full_src 	= "<iframe width='100%' height='auto' src='" +source+"' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
-	$('.framming_place').html("dinonaktifkan");
+	$('.framming_place').html(full_src);
 
 	
 	function dtTables_complete(){
