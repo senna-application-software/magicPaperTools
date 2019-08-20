@@ -200,7 +200,8 @@ $(document).ready(function() {
       }	
 		],			
 		"select"		: {
-			"style"		: "single", 
+			"style"		: "os"
+			//"style"		: "single", 
 			//"selector": "td:last-child",	// jika Selector diaktifkan, pada combobox bisa diselect. not rows click.
     },		
 		"order"	: [[ 5, 'asc' ]],			
